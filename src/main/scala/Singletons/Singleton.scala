@@ -1,6 +1,6 @@
 class Pool(){ 
     Pool.clearConnections
-    
+
     def openConnection: (String, String) = Pool.openConnection(java.util.UUID.randomUUID.toString->java.util.UUID.randomUUID.toString)
 }
 
@@ -13,5 +13,6 @@ object Pool {
     private def clearConnections() {
         connections.clear()
     }
-    def showConnections = Pool.connections.values.foreach(con => println(con))
+    def showConnections = connections.values.foreach(con => println(con))
+    def connectionsCount = () => connections.size
 }
