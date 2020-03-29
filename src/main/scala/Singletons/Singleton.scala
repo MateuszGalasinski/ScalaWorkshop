@@ -1,6 +1,17 @@
+class Pool(){ 
+    Pool.clearConnections
+    
+    def openConnection: (String, String) = Pool.openConnection(java.util.UUID.randomUUID.toString->java.util.UUID.randomUUID.toString)
+}
+
 object Pool { 
-    def showConnections() {
-        connections.values.foreach(con => println(con))
+    private val connections = collection.mutable.Map("abc"->"Connection1", "xyz"->"Connection2")
+    private def openConnection(connection:(String, String)): (String, String) = {
+        connections += connection
+        connection
+    } 
+    private def clearConnections() {
+        connections.clear()
     }
-    val connections = Map("1"->"Connection1", "2"->"Connection2")
+    def showConnections = Pool.connections.values.foreach(con => println(con))
 }
