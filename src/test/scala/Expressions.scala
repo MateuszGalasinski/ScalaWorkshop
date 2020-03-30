@@ -10,5 +10,5 @@ class ExpressionsTests extends FunSuite {
         assert(t == "Lesser")
 
         assert((if (v > 2) {"Greater"} else { "Lesser"}) == "Lesser")
-    }   
+    }
 }
