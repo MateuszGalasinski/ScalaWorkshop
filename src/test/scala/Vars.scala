@@ -5,10 +5,9 @@ class VariablesSpec extends FlatSpec with Matchers {
     def fixture =
       new {
         val iterator = (f: Int=>Int, a: Array[Int]) => a.map(e => fun(e))
-        val numbers2 = Array(16, 154)
+        val (numbers, numbers2) = (Array(1, 7, 4), Array(16, 154))
         val x = 7
-        var numbers = Array(1, 7, 4)
-        var fun = (s: Int) => s/x // ???
+        var fun = (s: Int) => s%x
       }
     "'Fun' applied to numbers" should "give correct values" in {
       val f = fixture
